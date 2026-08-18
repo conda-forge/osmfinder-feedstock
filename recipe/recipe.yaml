@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.0.0"
+  version: "1.0.1"
 
 package:
   name: osmfinder
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/o/osmfinder/osmfinder-${{ version }}.tar.gz
-  sha256: 41802a0db913f7fd211ae70ea25d245155a3e0199bef2c9693703c491e2e8cde
+  sha256: 3c2d86535f4cd8066d8a91ed6b687be9dccd8edd6740bd6f6379b9f51bb32f43
 
 build:
   number: 0

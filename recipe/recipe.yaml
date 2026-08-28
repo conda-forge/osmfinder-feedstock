@@ -15,8 +15,9 @@ build:
   number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  entry_points:
-    - osmfinder = osmfinder.cli:app
+  python:
+    entry_points:
+      - osmfinder = osmfinder.cli:app
 
 requirements:
   host:

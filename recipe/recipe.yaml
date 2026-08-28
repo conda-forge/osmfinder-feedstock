@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.0.1"
+  version: "1.1.0"
 
 package:
   name: osmfinder
@@ -9,12 +9,15 @@ package:
 
 source:
   url: https://pypi.org/packages/source/o/osmfinder/osmfinder-${{ version }}.tar.gz
-  sha256: 3c2d86535f4cd8066d8a91ed6b687be9dccd8edd6740bd6f6379b9f51bb32f43
+  sha256: 085e2af32b46c2a958aee0cb9e11c46c11896c3b858ff80d5fcabb0c5e9f15df
 
 build:
   number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - osmfinder = osmfinder.cli:app
 
 requirements:
   host:
@@ -24,7 +27,6 @@ requirements:
   run:
     - python >=${{ python_min }}
     - shapely >=2
-    - pyproj >=3
     - pooch >=1.6.0
     - requests
     - beautifulsoup4
@@ -35,6 +37,7 @@ requirements:
     - python-dateutil >=2.8
     - arro3-core >=0.8.0
     - arro3-io >=0.8.0
+    - typer >=0.12.0
 
 tests:
   - python:
@@ -44,6 +47,13 @@ tests:
       python_version:
         - ${{ python_min }}.*
         - "*"
+  - script:
+    - osmfinder --help
+    - osmfinder --version
+    - osmfinder search --help
+    - osmfinder covers --help
+    - osmfinder search 'Monaco' --dry-run
+    - osmfinder covers --wkt 'POLYGON ((2.2491461478001513 49.03621817328168, 1.9383995997151866 48.979595902172136, 1.874724557538616 48.75814148469309, 2.120222079988468 48.59402485699897, 2.4286135417964476 48.650849060955274, 2.493850806356199 48.871586893750965, 2.2491461478001513 49.03621817328168))' --dry-run
 
 about:
   homepage: https://github.com/RaczeQ/osmfinder

@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "1.1.0"
+  version: "1.2.0"
 
 package:
   name: osmfinder
@@ -9,7 +9,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/o/osmfinder/osmfinder-${{ version }}.tar.gz
-  sha256: 085e2af32b46c2a958aee0cb9e11c46c11896c3b858ff80d5fcabb0c5e9f15df
+  sha256: 7989bbc756dd53a92c7b95ac22e642576dd9dc673d3f35116f8d4f7b527d870f
 
 build:
   number: 0
@@ -48,12 +48,12 @@ tests:
         - ${{ python_min }}.*
         - "*"
   - script:
-    - osmfinder --help
-    - osmfinder --version
-    - osmfinder search --help
-    - osmfinder covers --help
-    - osmfinder search 'Monaco' --dry-run
-    - osmfinder covers --wkt 'POLYGON ((2.2491461478001513 49.03621817328168, 1.9383995997151866 48.979595902172136, 1.874724557538616 48.75814148469309, 2.120222079988468 48.59402485699897, 2.4286135417964476 48.650849060955274, 2.493850806356199 48.871586893750965, 2.2491461478001513 49.03621817328168))' --dry-run
+      - osmfinder --help
+      - osmfinder --version
+      - osmfinder search --help
+      - osmfinder covers --help
+      - osmfinder search 'Monaco' --dry-run
+      - osmfinder covers --wkt 'POLYGON ((2.2491461478001513 49.03621817328168, 1.9383995997151866 48.979595902172136, 1.874724557538616 48.75814148469309, 2.120222079988468 48.59402485699897, 2.4286135417964476 48.650849060955274, 2.493850806356199 48.871586893750965, 2.2491461478001513 49.03621817328168))' --dry-run
 
 about:
   homepage: https://github.com/RaczeQ/osmfinder
